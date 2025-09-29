@@ -11,6 +11,7 @@ public:
         int n = nums.size();
         int i = 0;
         int maxCnt = 0;
+        
         while(i < n){
             int cnt = 0;
             while(i < n && nums[i] == 1){
