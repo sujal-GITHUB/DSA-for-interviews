@@ -15,8 +15,11 @@ public:
         for (int i = 0; i < n; i++) {
             for (int j = i; j < n; j++) {
                 vector<int> freq(26, 0);
-                for (int x = i; x <= j; x++) freq[s[x]-'A']++;
+                for (int x = i; x <= j; x++) 
+                freq[s[x]-'A']++;
+
                 int maxFreq = *max_element(freq.begin(), freq.end());
+                
                 if ((j - i + 1) - maxFreq <= k) {
                     ans = max(ans, j - i + 1);
                 }
