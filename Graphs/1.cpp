@@ -3,6 +3,24 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+/*
+# Time Complexity:
+
+Each vertex is visited once → O(V)
+
+Each edge is traversed once → O(E)
+
+Total = O(V + E)
+
+# Space Complexity:
+
+visited[] array → O(V)
+
+Queue for BFS → O(V) (worst case, all vertices in queue)
+
+Total = O(V)
+*/
+
 class Solution {
   public:
     vector<int> bfs(vector<vector<int>> &adj) {

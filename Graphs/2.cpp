@@ -3,6 +3,24 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+/*
+# Time Complexity:
+
+Each vertex is visited once → O(V)
+
+Each edge is explored once → O(E)
+
+Total = O(V + E)
+
+# Space Complexity:
+
+visited[] array → O(V)
+
+Recursion stack (in worst case, graph is a chain) → O(V)
+
+Total = O(V)
+*/
+
 class Solution {
   public:
     void Dfs(int node, vector<vector<int>>& adj, vector<int>&ans, vector<int>&vis){
