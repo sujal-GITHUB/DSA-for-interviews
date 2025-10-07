@@ -6,41 +6,47 @@
 using namespace std;
 
 class Solution {
-  public:
-    vector<int> dijkstra(int V, vector<vector<int>> &edges, int src) {
-        vector<int>dist(V, 1e9);
-        vector<vector<pair<int,int>>>adj(V);
-        
-        for(auto e: edges){
-            int u = e[0];
-            int v = e[1];
-            int w = e[2];
-            
-            adj[u].push_back({w, v});
-        }
-        
-        dist[src] = 0;
-        priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>>pq;
-        pq.push({0, src});
-        
-        while(!pq.empty()){
-            auto it = pq.top();
-            pq.pop();
-            
-            int node = it.second;
-            int wt = it.first;
-            
-            for(auto x: adj[node]){
-                int edW = x.first;
-                int adN = x.second;
-                
-                if(wt+edW < dist[adN]){
-                    dist[adN] = wt+edW;
-                    pq.push({dist[adN], adN});
-                } 
+public:
+    int shortestPathBinaryMatrix(vector<vector<int>>& grid) {
+        int m = grid.size();
+        int n = grid[0].size();
+
+        if(grid[0][0] == 1 || grid[m-1][n-1] == 1) 
+        return -1;
+
+        vector<int> dr = {-1,-1,-1,0,0,1,1,1};
+        vector<int> dc = {-1,0,1,-1,1,-1,0,1};
+
+        vector<vector<int>>dist(m, vector<int>(n, 1e9));
+
+        queue<pair<int , pair<int, int>>>q; //{wt, {x,y}}
+        q.push({1, {0,0}});
+        dist[0][0] = 1;
+
+        while(!q.empty()){
+            auto it = q.front();
+            q.pop();
+
+            int d = it.first;
+            int x = it.second.first;
+            int y = it.second.second;
+
+            if(x == m-1 && y == n-1){
+                return d;
+            }
+
+            for(int i=0; i<8; i++){
+                int nx = x + dr[i];
+                int ny = y + dc[i];
+
+                if(nx >= 0 && nx < m && ny >= 0 && ny < n && grid[nx][ny] == 0){
+                    if(d + 1 < dist[nx][ny]){
+                        dist[nx][ny] = d+1;
+                        q.push({d+1, {nx, ny}});
+                    }
+                }
             }
         }
-        
-        return dist;
+        return -1;
     }
 };
