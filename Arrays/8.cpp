@@ -5,7 +5,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-//Boyer–Moore Majority Vote Algorithm
+// Boyer–Moore Majority Vote Algorithm
 
 class Solution {
 public:
