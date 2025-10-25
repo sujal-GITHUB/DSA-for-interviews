@@ -6,25 +6,35 @@
 using namespace std;
 
 class Solution {
-public:
-    int findMin(vector<int>& nums) {
+  public:
+    int findKRotation(vector<int> &arr) {
+        // Code Here
+        int n = arr.size();
         int mini = 0;
-        int n = nums.size();
-
+        int smallest = 1e9;
+        
         int l = 0;
         int r = n-1;
-
-        while(l <= r){ 
+        
+        while(l<=r){
             int mid = l + (r-l)/2;
-
-            if(nums[mid] < nums[0]){
-                mini = mid;
-                r = mid - 1;
+            
+            if(arr[l] <= arr[mid]){
+                if(arr[l] <= smallest){
+                    mini = l;
+                    smallest = arr[l];
+                }
+                l = mid+1;
             }
             else{
-                l = mid + 1;
+                if(arr[mid] <= smallest){
+                    mini = mid;
+                    smallest = arr[mid];
+                }
+                r = mid-1;
             }
         }
-        return nums[mini];
+        
+        return mini;
     }
 };
