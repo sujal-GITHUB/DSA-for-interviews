@@ -48,7 +48,6 @@ public:
         TreeNode* curr = root;
 
         while(curr || !st.empty()){
-
             //Go left
             while(curr){
                 st.push(curr);

@@ -1,4 +1,4 @@
-// Postorder Traversal
+// Level Order Traversal
 
 // Link: https://leetcode.com/problems/binary-tree-level-order-traversal/description/
 
