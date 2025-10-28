@@ -10,10 +10,9 @@ using namespace std;
 class Solution {
 public:
     int f(int i, int target, vector<int>& nums, vector<vector<int>>& dp) {
-        if(i == 0) {
-            if(target == 0 && nums[0] == 0)
-                return 2;
-            if(target == 0 || target == nums[0])
+        int n = nums.size();
+        if(i == n) {
+            if(target == 0)
                 return 1;
             return 0;
         }
@@ -21,10 +20,10 @@ public:
         if(dp[i][target] != -1)
             return dp[i][target];
 
-        int nottake = f(i - 1, target, nums, dp);
+        int nottake = f(i + 1, target, nums, dp);
         int take = 0;
         if(nums[i] <= target)
-            take = f(i - 1, target - nums[i], nums, dp);
+            take = f(i + 1, target - nums[i], nums, dp);
 
         return dp[i][target] = nottake + take;
     }
@@ -37,15 +36,14 @@ public:
             return 0;
         int target = (tsum - d) / 2;
         int n = nums.size();
-        vector<vector<int>> dp(n, vector<int>(target + 1, -1));
-        return f(n - 1, target, nums, dp);
+        vector<vector<int>> dp(n + 1, vector<int>(target + 1, -1));
+        return f(0, target, nums, dp);
     }
 
     int findTargetSumWays(vector<int>& nums, int target) {
         return help(nums, target);
     }
 };
-
 
 // Tabulation
 
