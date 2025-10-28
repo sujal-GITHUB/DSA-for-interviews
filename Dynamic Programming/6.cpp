@@ -55,7 +55,6 @@ public:
             }
         }
 
-        // Answer is number of paths to bottom-right corner
         return dp[m - 1][n - 1];
     }
 };
