@@ -23,6 +23,7 @@ public:
         if(root->val==key){
             return helper(root);
         }
+        
         TreeNode* dummy = root;
         while(root!=NULL){
             if(root->val>key){
@@ -46,6 +47,7 @@ public:
         }
         return dummy;
     }
+
     TreeNode* helper(TreeNode* root){
         if(root->left==NULL){
             return root->right;
@@ -58,6 +60,7 @@ public:
         lastRight->right = rightChild;
         return root->left;
     }
+
     TreeNode* findlastRight(TreeNode* root){
         if(root->right==NULL){
             return root;
