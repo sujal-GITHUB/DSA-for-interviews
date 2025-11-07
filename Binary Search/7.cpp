@@ -8,23 +8,24 @@ using namespace std;
 class Solution {
 public:
     int findMin(vector<int>& nums) {
-        int mini = 0;
+        int ans = 1e9;
         int n = nums.size();
 
         int l = 0;
         int r = n-1;
 
-        while(l <= r){ 
+        while(l <= r){
             int mid = l + (r-l)/2;
 
-            if(nums[mid] < nums[0]){
-                mini = mid;
-                r = mid - 1;
+            if(nums[l] <= nums[mid]){
+                ans = min(ans, nums[l]);
+                l = mid+1;
             }
             else{
-                l = mid + 1;
+                ans = min(ans, nums[mid]);
+                r = mid-1;
             }
         }
-        return nums[mini];
+        return ans;
     }
 };

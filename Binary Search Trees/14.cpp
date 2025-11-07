@@ -74,7 +74,10 @@ class Solution {
         return {max(L.size, R.size), INT_MIN, INT_MAX, false};
     }
 
+<<<<<<< HEAD
     
+=======
+>>>>>>> 13513edbc235777a33351a06294eb34164081f55
 public:
     int largestBst(Node* root) {
         return dfs(root).size;

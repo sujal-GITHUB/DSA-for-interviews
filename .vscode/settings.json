@@ -1,0 +1,9 @@
+{
+    "C_Cpp.errorSquiggles": "disabled",
+    "files.associations": {
+        "vector": "cpp",
+        "xutility": "cpp",
+        "initializer_list": "cpp",
+        "utility": "cpp"
+    }
+}
