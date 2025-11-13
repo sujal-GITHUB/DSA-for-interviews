@@ -6,7 +6,6 @@
 using namespace std;
 
 // Approach 1
-
 class Solution {
 public:
     int longestOnes(vector<int>& nums, int k) {
