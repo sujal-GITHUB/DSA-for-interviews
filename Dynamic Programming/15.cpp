@@ -7,9 +7,6 @@ using namespace std;
 
 // Iterative
 
-#include <bits/stdc++.h>
-using namespace std;
-
 class Solution {
 public:
     int minimumDifference(vector<int>& nums) {
