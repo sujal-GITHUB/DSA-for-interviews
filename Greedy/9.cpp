@@ -30,25 +30,26 @@ class Solution {
 
 // Greedy
 class Solution {
-public:
-    int jump(vector<int>& nums) {
-        int n = nums.size();
-
-        if(n <= 1)
-        return 0;
-
-        int f = 0;
-        int jumps = 0;
-        int end = 0;
-
-        for(int i=0; i<n-1; i++){
-            f = max(f, i+nums[i]);
-
-            if(i == end){
-                jumps++;
-                end = f;
+  public:
+    int minPlatform(vector<int>& arr, vector<int>& dep) {
+        int n = arr.size();
+        
+        sort(arr.begin(), arr.end());
+        sort(dep.begin(), dep.end());
+        
+        int i = 0, j = 0, plat = 0, ans = 0;
+        
+        while(i < n){
+            if(arr[i] <= dep[j]){
+                plat++;
+                ans = max(ans, plat);
+                i++;
+            } 
+            else {
+                plat--;
+                j++;
             }
         }
-        return jumps;
+        return ans;
     }
 };
