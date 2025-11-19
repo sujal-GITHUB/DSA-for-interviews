@@ -98,28 +98,30 @@ public:
 class Solution {
 public:
     bool checkValidString(string s) {
-        int low = 0, high = 0;
+        int o = 0;
+        int n = s.size();
 
-        for(char c: s){
-            if(c == '('){
-                low++; 
-                high++;
-            } 
-            else if(c == ')'){
-                low--;
-                high--;
-            } 
-            else{
-                low--;     
-                high++;  
-            }
+        for(int i=0; i<n; i++){
+            if(s[i] == '(' || s[i] == '*')
+            o++;
+            else
+            o--;
 
-            if(high < 0)
+            if(o < 0)
             return false;
-            if(low < 0)
-            low = 0;      
         }
 
-        return low == 0;
+        o = 0;
+        for(int i=n-1; i>=0; i--){
+            if(s[i] == ')' || s[i] == '*')
+            o++;
+            else
+            o--;
+
+            if(o < 0)
+            return false;
+        }
+
+        return true;
     }
 };
