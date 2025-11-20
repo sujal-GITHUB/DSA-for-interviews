@@ -10,7 +10,7 @@ using namespace std;
 class Solution {
 public:
     int longestConsecutive(vector<int>& nums) {
-        unordered_set<int> st(nums.begin(), nums.end());
+        unordered_set<int>st(nums.begin(), nums.end());
         int maxLen = 0;
 
         for(int x: st){

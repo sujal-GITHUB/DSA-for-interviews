@@ -73,7 +73,6 @@ public:
 };
 
 // DSU
-
 class SolutionUF {
     struct DSU {
         vector<int> parent, rank;
@@ -89,7 +88,7 @@ class SolutionUF {
         bool unionSet(int u, int v) {
             int pu = find(u), pv = find(v);
 
-            if (pu == pv) 
+            if(pu == pv) 
             return false; // cycle detected
 
             if (rank[pu] < rank[pv]) 
