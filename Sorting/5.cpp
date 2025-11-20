@@ -7,24 +7,31 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int partition(vector<int>& arr, int low, int high) {
-    int pivot = arr[high], i = low-1;
+int p(vector<int>& arr, int l, int r){
+    int pivot = arr[r];
+    int i = l;
+    int j = r - 1;
 
-    for(int j = low; j < high; j++) {
-        if(arr[j] <= pivot) {
-            i++;
-            swap(arr[i], arr[j]);
-        }
+    while(i <= j){
+        while(i <= j && arr[i] <= pivot) 
+        i++;
+
+        while(i <= j && arr[j] >= pivot) 
+        j--;
+
+        if(i < j) 
+        swap(arr[i], arr[j]);
     }
-    
-    swap(arr[i+1], arr[high]);
-    return i+1;
+
+    swap(arr[i], arr[r]);
+    return i;
 }
 
-void quickSort(vector<int>& arr, int low, int high) {
-    if(low < high) {
-        int pi = partition(arr, low, high);
-        quickSort(arr, low, pi-1);
-        quickSort(arr, pi+1, high);
-    }
+void quick(vector<int>& arr, int l, int r){
+    if(l >= r) 
+    return;
+
+    int pi = p(arr, l, r);
+    quick(arr, l, pi-1);
+    quick(arr, pi+1, r);
 }
