@@ -1,4 +1,4 @@
-//Merge Sort
+// Merge Sort
 
 // Idea: Divide and Conquer – Split array into halves, sort each recursively, then merge.
 
