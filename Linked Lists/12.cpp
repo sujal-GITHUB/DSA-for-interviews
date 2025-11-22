@@ -45,7 +45,6 @@ public:
 };
 
 // Merge Sort
-
 class Solution {
 public:
     ListNode* sortList(ListNode* head) {
