@@ -39,8 +39,7 @@ private:
     }
 };
 
-
-// Iterative
+// Iterative or BFS
 
 class Solution {
 public:
